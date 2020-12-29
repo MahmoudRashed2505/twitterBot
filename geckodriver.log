@@ -1,0 +1,34 @@
+1609248130804	geckodriver	INFO	Listening on 127.0.0.1:49954
+1609248133870	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\MAHMOU~1\\AppData\\Local\\Temp\\rust_mozprofilegCQ1QM"
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+Can't find symbol 'eglSetDamageRegionKHR'.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1609248136397	Marionette	INFO	Listening on port 49963
+1609248136559	Marionette	WARN	TLS certificate errors will be ignored for this session
+1609248151990	Marionette	INFO	Stopped listening on port 49963
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1609248157182	geckodriver	INFO	Listening on 127.0.0.1:50032
+1609248161044	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\MAHMOU~1\\AppData\\Local\\Temp\\rust_mozprofilePwzo4d"
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+Can't find symbol 'eglSetDamageRegionKHR'.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1609248163532	Marionette	INFO	Listening on port 50040
+1609248163720	Marionette	WARN	TLS certificate errors will be ignored for this session
+1609249311754	Marionette	INFO	Stopped listening on port 50040
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+"--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\MAHMOU~1\\AppData\\Local\\Temp\\rust_mozprofileUUTAKy"
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+Can't find symbol 'eglSetDamageRegionKHR'.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1609248237249	Marionette	INFO	Listening on port 50141
+1609248237340	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://twitter.com/, line 181: ChunkLoadError: Loading chunk 233 failed.
+(error: https://abs.twimg.com/responsive-web/client-web/ondemand.emoji.en.73feefd5.js)
+1609249271464	Marionette	INFO	Stopped listening on port 50141
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+

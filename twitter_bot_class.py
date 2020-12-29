@@ -1,10 +1,8 @@
 from selenium import webdriver
 from selenium import common
 from selenium.webdriver.common import keys
-from webdriver_manager.firefox import GeckoDriverManager
 import time
 
-driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
 
 class TwitterBot:
 
@@ -43,15 +41,18 @@ class TwitterBot:
     """
     
 
-    def __init__(self, email, password):
-        self.email = email
-        self.password = password
-        self.bot = driver
+    def __init__(self):
+        username = open('usernames.txt','r')
+        usernames = username.splitlines()
+        password = usernames[-1]
+        numberOfUsers = usernames.length
+        proxylist = open('proxylist.txt','r')
         self.is_logged_in = False
 
 
-    def login(self):
-        bot = self.bot
+
+    def login(self,browser,username,password):
+        bot = browser
         bot.get('https://twitter.com/')
         time.sleep(4)
 
@@ -65,18 +66,18 @@ class TwitterBot:
         
         email.clear()
         password.clear()
-        email.send_keys(self.email)
-        password.send_keys(self.password)
+        email.send_keys(email)
+        password.send_keys(password)
         password.send_keys(keys.Keys.RETURN)
         time.sleep(10)
         self.is_logged_in = True
 
 
-    def logout(self):
+    def logout(self,browser):
         if not self.is_logged_in:
             return 
 
-        bot = self.bot
+        bot = browser
         bot.get('https://twitter.com/home')
         time.sleep(4)
 
@@ -106,49 +107,12 @@ class TwitterBot:
         self.is_logged_in = False
 
 
-    def search(self, query=''):
-        if not self.is_logged_in:
-            raise Exception("You must log in first!")
-
-        bot = self.bot
-
-        try:
-            searchbox = bot.find_element_by_xpath("//input[@data-testid='SearchBox_Search_Input']")
-        except common.exceptions.NoSuchElementException:
-            time.sleep(2)
-            searchbox = bot.find_element_by_xpath("//input[@data-testid='SearchBox_Search_Input']")
-
-        searchbox.clear()
-        searchbox.send_keys(query)
-        searchbox.send_keys(keys.Keys.RETURN)
-        time.sleep(10)  
-
-
-    def like_tweets(self, cycles=10):
-        if not self.is_logged_in:
-            raise Exception("You must log in first!") 
-
-        bot = self.bot   
-
-        for i in range(cycles):
-            try:
-                bot.find_element_by_xpath("//div[@data-testid='like']").click()
-            except common.exceptions.NoSuchElementException:
-                time.sleep(3)
-                bot.execute_script('window.scrollTo(0,document.body.scrollHeight/1.5)') 
-                time.sleep(3)
-                bot.find_element_by_xpath("//div[@data-testid='like']").click()
-
-            time.sleep(1)
-            bot.execute_script('window.scrollTo(0,document.body.scrollHeight/1.5)') 
-            time.sleep(5)
-
       
-    def post_tweets(self,tweetBody):
+    def post_tweets(self,tweetBody,browser):
         if not self.is_logged_in:
             raise Exception("You must log in first!")
 
-        bot = self.bot  
+        bot = browser  
 
         try:
             bot.find_element_by_xpath("//a[@data-testid='SideNav_NewTweet_Button']").click()
